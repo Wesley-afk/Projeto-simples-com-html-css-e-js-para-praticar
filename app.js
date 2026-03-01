@@ -1,46 +1,83 @@
 let formularioDeCadastrarTreino = document.querySelector('.formularioParaCadastrarTreino');
-
-let treinos = [];
 const campo = document.querySelector('.treinosCadastrados');
 
-formularioDeCadastrarTreino.addEventListener('submit', function (event) {
-    event.preventDefault();
-    treinos.push(event.target.nome.value);
-    console.log('Formulário enviado', treinos);
-    event.target.nome.value = ''; 
-    MostrarTreino();
-})
+MostrarTreino();
 
-function MostrarTreino() {
+
+async function MostrarTreino() {
+    const requisicao = await fetch('http://localhost:3000/treinos');
+    let resposta = await requisicao.json();
+
     campo.innerHTML = '';
-    
-    treinos.forEach((treino, index) => {
-        console.log('index no valor: ' + index)
-
+    resposta.forEach((treino) => {
         const li = document.createElement('li');
         const botaoEditarTreino = document.createElement('button');
         const botaoExcluirTreino = document.createElement('button');
-        li.textContent = treinos[index];
+        const span = document.createElement('span'); //Criando um span para colocar o nome do treino
+
+        span.innerHTML = treino.nome; //Apenas o texto vai para o span
 
         campo.appendChild(li);
+        li.appendChild(span);
         li.appendChild(botaoEditarTreino);
         li.appendChild(botaoExcluirTreino);
 
         botaoEditarTreino.textContent = 'Editar treino';
         botaoExcluirTreino.textContent = 'Excluir treino';
 
-        // Deletar treino
-        botaoExcluirTreino.addEventListener('click', function () {
-            treinos.splice(index, 1);
-            index = index - 1;
-            MostrarTreino(); 
+        botaoExcluirTreino.addEventListener('click', () => {
+            excluirTreino(treino.id);
         });
+        botaoEditarTreino.addEventListener('click', () => {
+            const novoNome = prompt('Qual será o nome novo do treino', treino.nome);
 
-        // Editar treino
-        botaoEditarTreino.addEventListener('click', function () {
-            treinos[index] = prompt('Qual é o novo nome?', treino);
-            MostrarTreino(); 
+            if (novoNome) {
+                editarTreino(treino.id, novoNome);
+            }
         });
-    }
-    );
+    })
+}
+
+
+formularioDeCadastrarTreino.addEventListener('submit', async function cadastrarTreino(event) {
+    event.preventDefault();
+
+    const nomeTreino = event.target.nome.value;
+
+    const req = await fetch('http://localhost:3000/treinos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nomeTreino })
+    });
+
+    // Limpo o campo
+    event.target.nome.value = '';
+
+    // Atualizo a tela
+    MostrarTreino();
+})
+
+
+// Fazer o deletar treino e editar treino
+
+async function excluirTreino(id) {
+    await fetch(`http://localhost:3000/treinos/${id}`, {
+        method: 'DELETE'
+    });
+
+    MostrarTreino();
+}
+
+async function editarTreino(id, novoNome) {
+    await fetch(`http://localhost:3000/treinos/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        // Transformo meu obj js em um json(texto) para a rede entender e envio
+        body: JSON.stringify({
+            nome: novoNome
+        })
+    })
+    MostrarTreino();
 }

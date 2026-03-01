@@ -1,0 +1,24 @@
+{
+  "name": "trainlog",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch db.json --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wesley-afk/Projeto-simples-com-html-css-e-js-para-praticar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wesley-afk/Projeto-simples-com-html-css-e-js-para-praticar/issues"
+  },
+  "homepage": "https://github.com/Wesley-afk/Projeto-simples-com-html-css-e-js-para-praticar#readme",
+  "description": "",
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.12"
+  }
+}
