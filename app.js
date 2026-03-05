@@ -15,7 +15,7 @@ async function MostrarTreino() {
         const botaoExcluirTreino = document.createElement('button');
         const span = document.createElement('span'); //Criando um span para colocar o nome do treino
 
-        span.innerHTML = treino.nome; //Apenas o texto vai para o span
+        span.textContent = treino.nome; //Apenas o texto vai para o span
 
         campo.appendChild(li);
         li.appendChild(span);
@@ -31,20 +31,18 @@ async function MostrarTreino() {
         botaoEditarTreino.addEventListener('click', () => {
             const novoNome = prompt('Qual será o nome novo do treino', treino.nome);
 
-            if (novoNome) {
-                editarTreino(treino.id, novoNome);
-            }
+            editarTreino(treino.id, novoNome);
         });
     })
 }
 
-
+// Adicionar um treino
 formularioDeCadastrarTreino.addEventListener('submit', async function cadastrarTreino(event) {
     event.preventDefault();
 
     const nomeTreino = event.target.nome.value;
 
-    const req = await fetch('http://localhost:3000/treinos', {
+    const req = await fetch('http://localhost:3000/CadastrarTreinos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome: nomeTreino })
@@ -61,7 +59,7 @@ formularioDeCadastrarTreino.addEventListener('submit', async function cadastrarT
 // Fazer o deletar treino e editar treino
 
 async function excluirTreino(id) {
-    await fetch(`http://localhost:3000/treinos/${id}`, {
+    await fetch(`http://localhost:3000/deletarTreino/${id}`, {
         method: 'DELETE'
     });
 
@@ -69,7 +67,7 @@ async function excluirTreino(id) {
 }
 
 async function editarTreino(id, novoNome) {
-    await fetch(`http://localhost:3000/treinos/${id}`, {
+    await fetch(`http://localhost:3000/editarTreino/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
