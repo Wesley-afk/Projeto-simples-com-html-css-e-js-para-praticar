@@ -1,4 +1,6 @@
-let formularioDeCadastrarTreino = document.querySelector('.formularioParaCadastrarTreino');
+// O . no querySelector indica classe
+const formularioDeCadastrarTreino = document.querySelector('.formularioParaCadastrarTreino'); 
+
 const campo = document.querySelector('.treinosCadastrados');
 
 MostrarTreino();
@@ -54,7 +56,6 @@ formularioDeCadastrarTreino.addEventListener('submit', async function cadastrarT
     // Atualizo a tela
     MostrarTreino();
 })
-
 
 // Fazer o deletar treino e editar treino
 
