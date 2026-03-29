@@ -1,0 +1,65 @@
+.divLogin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35vw;
+    min-height: 35vw;
+    background-color: rgb(255, 255, 255);
+    padding: 2vh 1vw;
+    border-radius: 7%;
+    box-shadow: 1vh 1vh 3vh rgba(0, 0, 0, 0.3); 
+}
+
+.formularioParaLogar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+input {
+    border-radius: 100px;
+    width: 72%;
+    margin-left: 5vw;
+    border-width: 0.1vw; 
+    padding: 0.6vw;
+    box-sizing: border-box;
+}
+
+.nomeDeUsuario {
+    margin-left: 5vw;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(12px, 1vw, 18px); 
+}
+
+.senhaDoUsuario {
+    margin-left: 5vw;
+    margin-top: 1.2vw;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(12px, 1vw, 18px); 
+}
+
+button {
+    color: white;
+    border: none;
+    padding: 0.8vw;
+    background-color: #40FF00;
+    border-radius: 100px; 
+    width: 50%;
+    margin-top: 2vh;
+    margin-left: 8.3vw;
+}
+
+img {
+    display: block;
+    margin: 0 auto; 
+    width: 70%;
+}
+
+label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button:hover {
+    background-color: rgb(99, 255, 79);
+}
