@@ -3,26 +3,27 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35vw;
+    width: 30vw;
     min-height: 35vw;
-    background-color: rgb(255, 255, 255);
-    padding: 2vh 1vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1px;
     border-radius: 7%;
-    box-shadow: 1vh 1vh 3vh rgba(0, 0, 0, 0.3); 
+    box-shadow: 1vh 1vh 3vh rgba(0, 0, 0, 0.3);  
 }
 
-.formularioParaLogar {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2vh;
+body{  
+    margin: 0; 
+    background-color: rgba(0,23, 2, 1);
 }
 
 input {
     border-radius: 100px;
     width: 72%;
-    margin-left: 5vw;
+    margin-left: 4.5vw;
     border-width: 0.1vw; 
-    padding: 0.6vw;
+    margin-top: 5vh;
+    padding: 0.3vw;
+    background-color: rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
 }
 
@@ -30,34 +31,42 @@ input {
     margin-left: 5vw;
     font-family: 'Inter', sans-serif;
     font-size: clamp(12px, 1vw, 18px); 
+    color: white;   
+    position: relative;
+    top: 5vh;
 }
 
 .senhaDoUsuario {
     margin-left: 5vw;
     margin-top: 1.2vw;
     font-family: 'Inter', sans-serif;
-    font-size: clamp(12px, 1vw, 18px); 
+    font-size: clamp(12px, 1vw, 18px);
+    color: white; 
+    position: relative;
+    top: 5vh;
 }
 
 button {
     color: white;
     border: none;
-    padding: 0.8vw;
-    background-color: #40FF00;
+    padding: 0.4vw;
+    background-color: rgb(34, 197, 94);
     border-radius: 100px; 
-    width: 50%;
-    margin-top: 2vh;
+    width: 43%;
+    margin-top: 5vh;
     margin-left: 8.3vw;
+    cursor: pointer;
 }
 
 img {
     display: block;
     margin: 0 auto; 
     width: 70%;
+    padding-top: 6vh;
 }
 
 label {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'inter' sans-serif;
 }
 
 button:hover {
