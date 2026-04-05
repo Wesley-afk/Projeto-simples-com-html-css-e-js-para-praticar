@@ -1,0 +1,28 @@
+h1{
+    position: relative;
+    z-index: 1;
+    color: white;
+    margin-left: 42vw;
+    margin-top: 2vh;
+    font-family: "Jaro", sans-serif;
+    font-size: 4vw;
+    font-weight: 100;
+}
+
+body{
+    margin: 0;
+    background-position: top center; 
+    background-image: url('../../imgs/FundoLogin.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    height: 100%;
+}
+
+.camadaPreta{
+    inset: 0;
+    position: fixed;
+    z-index: 0;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+}

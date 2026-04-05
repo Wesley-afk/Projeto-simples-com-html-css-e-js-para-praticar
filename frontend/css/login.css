@@ -12,8 +12,14 @@
 }
 
 body{  
+    height: 100vh;
     margin: 0; 
     background-color: rgba(0,23, 2, 1);
+    background-image: url('../../imgs/FundoLogin.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-y: 0vh;
 }
 
 input {

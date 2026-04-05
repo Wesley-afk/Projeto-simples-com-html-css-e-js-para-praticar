@@ -1,7 +1,7 @@
-const formularioParaLogin = document.querySelector('.formularioParaLogar');
+const divLogin = document.querySelector('.divLogin');
 const campo = document.querySelector('input');
 
-formularioParaLogin.addEventListener('submit', async function (event) {
+divLogin.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const nomeDoUsuario = event.target.nomeDoUsuario.value;
@@ -16,7 +16,7 @@ formularioParaLogin.addEventListener('submit', async function (event) {
     if(resposta.status === 200){
         alert('Bem vindo, usuário')
         campo.value = ''
-        window.location.href = 'index.html'
+        window.location.href = 'treinos.html'
     } else{
         alert('Algo deu errado, tente novamente')
         console.log('Algum erro ocorreu internamente no servidor')
