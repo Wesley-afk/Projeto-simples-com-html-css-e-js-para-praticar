@@ -14,11 +14,11 @@ router.get('/treinos', (req, res) => {
 
 // Cadastrando treinos
 router.post('/CadastrarTreinos', (req, res) => {
-    const { nome } = req.body;
+    const { nome, series, repeticoes} = req.body;
 
-    const sql = "INSERT INTO treinos (nome) VALUES(?)";
+    const sql = "INSERT INTO treinos (nome, series, repeticoes) VALUES(?, ?, ?)";
 
-    connection.query(sql, [nome], (err, results) => {
+    connection.query(sql, [nome, series, repeticoes], (err, results) => {
         if (err) {
             return res.status(500).json({ erro: err.message });
         }

@@ -36,22 +36,26 @@ async function MostrarTreino() {
             editarTreino(treino.id, novoNome);
         });
     })
-}
+} 
 
 // Adicionar um treino
 formularioDeCadastrarTreino.addEventListener('submit', async function cadastrarTreino(event) {
     event.preventDefault();
 
     const nomeTreino = event.target.nome.value;
+    const seriesTreino = event.target.series.value;
+    const repeticoesTreino = event.target.repeticoes.value;
 
     const req = await fetch('http://localhost:3000/CadastrarTreinos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: nomeTreino })
+        body: JSON.stringify({ nome: nomeTreino, series: seriesTreino, repeticoes: repeticoesTreino})
     });
 
     // Limpo o campo
     event.target.nome.value = '';
+    event.target.series.value = '';
+    event.target.repeticoes.value = '';
 
     // Atualizo a tela
     MostrarTreino();
