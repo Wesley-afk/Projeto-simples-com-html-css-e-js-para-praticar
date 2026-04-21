@@ -43,6 +43,7 @@ body{
     z-index: 1;
     height: 100vh;
     font-family: 'Inter', sans-serif;
+    position: relative;
 } 
 
 .componenteDeTreino{
@@ -110,17 +111,6 @@ body{
     transform: scale(1.1);
 }
 
-.container{
-    background-color: rgba(156, 218, 132, 0.5);
-    width:28vw;
-    padding-top: 10px;
-    border-radius: 12px;
-    display: block; 
-    min-height: 10vh;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
 #treinosCadastradosContainer{
     display: none;
 }
@@ -147,9 +137,22 @@ body{
     color: black;
 }
 
+.container{
+    background-color: rgba(156, 218, 132, 0.5);
+    width:28vw;
+    padding-top: 10px;
+    border-radius: 12px;
+    display: block; 
+    min-height: 10vh; 
+    box-sizing: border-box;
+    margin-left: 8vw;
+    top: 8vh;
+    position: absolute;
+}
+
 .componenteDeExercicio{
     display: flex;
-    gap: 2%;
+    gap: 15%;
     background-color: rgba(217, 217, 217, 1);
     padding-bottom: 1%;
     margin-left: 5%;
@@ -159,18 +162,30 @@ body{
     color: black;
     align-items: center;
     white-space: nowrap;
-    width: 80%;
+    width: 80% auto;
 }
 
-.componenteDeExercicio p{
-    display: flex;
+.componenteDeExercicio input{ 
     font-size: clamp(10px, 1vw, 100px);
     margin-left: 6%;
     margin-top: 1%;
     color: black;
     font-weight: 400;
+    border: none;
+    background-color: rgba(217, 217, 217, 1); 
+    width: 15%;
 }
 
-.valor{ 
+.componenteDeExercicio input::placeholder{
     color: black;
+}
+
+.componenteDeExercicio p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+.dragging{
+    background-color: rgb(42, 124, 165);
 }

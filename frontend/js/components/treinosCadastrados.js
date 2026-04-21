@@ -1,14 +1,22 @@
-export function treinosCadastrados() { 
+export function treinosCadastrados() {
     return `
     <div class="container">
         <div class="containerPesquisa">
-            <input type="text" class="barraDePesquisa" name="pesquisa" placeholder="Pesquisar exercício..."/> 
-        </div>
-            <div class="componenteDeExercicio">
-                <p class="nomeDoExercicio"></p>
-                <p class="seriesDoExercicio">Séries: <span class="valor"></span></p>
-                <p class="repeticoesDoExercicio">Reps: <span class="valor"></span></p>
-            </div>    
-    </div> 
+            <input type="text" class="barraDePesquisa" name="pesquisa" placeholder="Pesquisar exercício..." />
+        </div> 
+    </div>
     `
 }
+
+
+// Estrutura original:
+//  <div class="container">
+//         <div class="containerPesquisa">
+//             <input type="text" class="barraDePesquisa" name="pesquisa" placeholder="Pesquisar exercício..." />
+//         </div>
+//         <div class="componenteDeExercicio" draggable=true>
+//             <p class="nomeDoExercicio"></p>
+//             <input type="number" name="series" placeholder="Séries" required />
+//             <input type="number" name="repeticoes" placeholder="Reps" required />
+//         </div>
+//     </div>
