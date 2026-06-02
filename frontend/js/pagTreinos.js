@@ -9,6 +9,10 @@ const campoNomeExercicio = document.querySelector('.nomeDoExercicio');
 const seriesExercicio = document.querySelector('.seriesDoExercicio .valor');
 const repeticoesDoExercicio = document.querySelector('.repeticoesDoExercicio .valor');
 
+
+const container = document.querySelector('.container');
+
+
 // Para o kanbam
 const pegarTreino = document.querySelectorAll('.componenteDeExercicio');
 const colocarTreino = document.querySelector('.caixaDeTreino');
@@ -25,11 +29,10 @@ botao.addEventListener('click', () => {
 async function mostrarTreinos() {
     const requisicao = await fetch('http://localhost:3000/treinos');
     let resposta = await requisicao.json();
+    console.log(resposta)
 
     // Colocar o nome, repetições e séries no componente de exercícios
     resposta.forEach(e => {
-
-        const container = document.querySelector('.container');
 
         const exercicio = document.createElement('div');
         exercicio.draggable = true;
@@ -69,3 +72,12 @@ colocarTreino.addEventListener('drop', e => {
     colocarTreino.appendChild(elementoCapturado) 
 })
 
+// Para conseguir devolver os cards
+
+container.addEventListener('dragover', e => {
+    e.preventDefault();
+})
+
+container.addEventListener('drop', e => {
+    container.appendChild(elementoCapturado)
+})
